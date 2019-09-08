@@ -1,0 +1,47 @@
+<!-- <textarea *ngIf="conversation" [(ngModel)]='conversation.message.text' (ngModelChange)="name.first=$event" (keyup)='editConversation()' placeholder='Start typing...'></textarea> -->
+
+<div class="row">
+  <div class="col-11 mr-auto">
+
+    <div class="row my-4" *ngIf="conversation">
+      <div class="col-12">
+        <mat-chip-list aria-label="User selection" #chipList>
+          <mat-chip *ngFor="let user of users" selectable="true" (click)="updateUserSelection(user)"> {{user.userName}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-expansion-panel class="my-2" *ngIf="conversation" expanded="panelOpenState"
+          (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="w-75">
+              <i class="material-icons">chat</i>
+              <span class="px-2 font-weight-bold">{{ conversation.id }}</span>
+            </mat-panel-title>
+            <mat-panel-description class="w-25">
+              <!-- <span>{{ comment.email }}</span> -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="row">
+            <div class="col-12 row mx-0 my-2" *ngFor="let message of conversation.messages">
+              <div class="d-flex">
+                <i class="material-icons mx-auto">account_circle</i>
+              </div>
+              <div class="mx-2">
+                <h6 class="font-weight-bold"> {{ message.userName }} </h6>
+                <div> {{ message.text }} </div>
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <input type="text" class="form-control" #message placeholder="Enter your message here"
+                (keyup.enter)="sendMessage(message.value); message.value = ''">
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+
+  </div>
+</div>

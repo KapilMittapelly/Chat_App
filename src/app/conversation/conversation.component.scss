@@ -1,0 +1,26 @@
+textarea {
+  position: fixed;
+  width: calc(100% - 260px);
+  height: 50%;
+  right: 0;
+  top: 0;
+  font-size: 18pt;
+  padding-top: 20px;
+  resize: none;
+  border: 1px solid teal;
+  padding: 20px 15px;
+  margin: 20px;
+}
+
+.conversation-container {
+  position: fixed;
+  width: calc(100% - 260px);
+  margin: 20px;
+}
+
+.w-3 {
+  width: 3%;
+}
+.w-97 {
+  width: 97%;
+}

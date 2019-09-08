@@ -1,0 +1,5 @@
+<div class='sidenav'>
+  <span (click)='newConversation()'>New Conversation</span>
+  <span [class.selected]='conversation_id === currentConversation' (click)='loadConversation(conversation_id)'
+    *ngFor='let conversation_id of converations | async'>{{ conversation_id }}</span>
+</div>
